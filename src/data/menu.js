@@ -265,5 +265,3 @@ export const categories = [
 
 export const getCategory = (id) => categories.find((c) => c.id === id)
 export const getSections = (category) => menu.filter((s) => category.sections.includes(s.id))
-export const countItems = (category) =>
-  getSections(category).reduce((sum, s) => sum + s.items.length, 0)

@@ -4,7 +4,7 @@ const KEY = 'bb-orders'
 
 export const money = (n) => `$${n.toFixed(2)}`
 
-export function getOrders() {
+function getOrders() {
   try {
     return JSON.parse(localStorage.getItem(KEY)) || []
   } catch {

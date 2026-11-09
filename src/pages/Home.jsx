@@ -18,16 +18,16 @@ export default function Home() {
           <h1>Start your day with the perfect cup</h1>
           <p>
             Espresso pulled on our La Marzocco, bagels and croissants baked every morning, and a
-            calm corner to slow down. Order ahead and skip the line.
+            calm corner to slow down.
           </p>
           <div className="hero-buttons">
-            <Link to="/menu/drinks" className="btn">Order Now</Link>
+            <Link to="/menu/drinks" className="btn">View Menu</Link>
             <Link to="/about" className="btn btn-outline">Our Story</Link>
           </div>
           <dl className="hero-facts">
             <div><dt>Open daily</dt><dd>From 7 AM</dd></div>
             <div><dt>Menu</dt><dd>120+ items</dd></div>
-            <div><dt>Pickup</dt><dd>~5 min</dd></div>
+            <div><dt>Brew bar</dt><dd>V60 daily</dd></div>
           </dl>
         </div>
         <div className="hero-photo">

@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { useCart } from '../context/CartContext.jsx'
 
 const links = [
   { to: '/', label: 'Home' },
@@ -12,7 +11,6 @@ const links = [
 
 export default function Navbar({ dark, toggleDark }) {
   const [open, setOpen] = useState(false)
-  const { count } = useCart()
   const { pathname } = useLocation()
 
   return (
@@ -39,9 +37,6 @@ export default function Navbar({ dark, toggleDark }) {
         <button className="icon-btn" onClick={toggleDark} aria-label="Switch light or dark mode">
           {dark ? '☀️' : '🌙'}
         </button>
-        <Link to="/cart" className="cart-link" aria-label={`Cart, ${count} items`} onClick={() => setOpen(false)}>
-          🛒{count > 0 && <span className="badge">{count}</span>}
-        </Link>
         <button className="icon-btn burger" onClick={() => setOpen(!open)} aria-label="Open menu" aria-expanded={open}>
           {open ? '✕' : '☰'}
         </button>

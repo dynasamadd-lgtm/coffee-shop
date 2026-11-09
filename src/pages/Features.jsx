@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader.jsx'
 
 const features = [
-  { icon: '📱', title: 'Order ahead', text: 'Pick your drinks and food online and collect them at the counter without waiting in line.' },
-  { icon: '🪑', title: 'Dine-in ordering', text: 'Sitting in the café? Add your table number at checkout and we bring the order to you.' },
-  { icon: '⏱️', title: 'Live order status', text: 'After checkout you get an order number and a live timeline: received, preparing, ready, completed.' },
-  { icon: '☕', title: 'Choose your size', text: 'Every drink shows Small, Medium and Large prices. Tap the one you want to add it.' },
-  { icon: '🌙', title: 'Light and dark mode', text: 'Switch the look of the site with one tap. Your choice is remembered.' },
+  { icon: '☕', title: 'Specialty coffee', text: 'Espresso classics pulled on our La Marzocco, plus V60 pour-overs with single-origin beans.' },
+  { icon: '🥯', title: 'Baked every morning', text: 'Bagels, croissants and sweets come out of the oven before we open the doors.' },
+  { icon: '💪', title: 'Healthy corner', text: 'Protein bars, energy balls, granola parfaits and a sugar-free cookie.' },
+  { icon: '🪑', title: 'Dine-in or takeaway', text: 'Stay in our calm corner with fast Wi-Fi, or grab your coffee on the go.' },
+  { icon: '🥛', title: 'Make it yours', text: 'Every drink comes in three sizes, with oat, almond or coconut milk and ten syrup flavours.' },
 ]
 
 const hours = [
@@ -19,8 +19,8 @@ export default function Features() {
     <>
       <PageHeader
         eyebrow="Features"
-        title="Order your way"
-        text="Everything you can do with Bean & Brew online."
+        title="Why come to Bean & Brew"
+        text="What makes our café a good place for your daily cup."
       />
 
       <section className="section">
@@ -51,7 +51,7 @@ export default function Features() {
         </div>
 
         <div className="center">
-          <Link to="/menu/drinks" className="btn">Start an order</Link>
+          <Link to="/menu/drinks" className="btn">See the menu</Link>
         </div>
       </section>
     </>

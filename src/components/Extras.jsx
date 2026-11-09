@@ -2,12 +2,11 @@ import { extras } from '../data/menu.js'
 
 const fmt = (n) => n.toFixed(2)
 
-// Add-ons are ordered at the counter, so this box is information only
 export default function Extras() {
   return (
     <div className="menu-section extras">
       <h3 className="menu-title">Add-ons</h3>
-      <p className="extras-hint">Ask your barista or write them in the order notes.</p>
+      <p className="extras-hint">Ask your barista to add any of these to your drink.</p>
 
       <h4>Milk</h4>
       {extras.milk.map((m) => (

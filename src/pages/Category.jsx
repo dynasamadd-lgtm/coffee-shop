@@ -3,14 +3,11 @@ import PageHeader from '../components/PageHeader.jsx'
 import MenuSection from '../components/MenuSection.jsx'
 import Extras from '../components/Extras.jsx'
 import { categories, getCategory, getSections } from '../data/menu.js'
-import { useCart } from '../context/CartContext.jsx'
-import { money } from '../utils/orders.js'
 
 // Dynamic page: the same component renders /menu/drinks, /menu/food, /menu/sweets ...
 export default function Category() {
   const { categoryId } = useParams()
   const category = getCategory(categoryId)
-  const { count, total } = useCart()
 
   if (!category) {
     return (
@@ -38,13 +35,6 @@ export default function Category() {
           {category.id === 'drinks' && <Extras />}
         </div>
       </section>
-
-      {count > 0 && (
-        <Link to="/cart" className="cart-bar">
-          <span>{count} {count === 1 ? 'item' : 'items'} · {money(total)}</span>
-          <strong>View cart →</strong>
-        </Link>
-      )}
     </>
   )
 }

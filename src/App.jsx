@@ -7,6 +7,8 @@ import Category from './pages/Category.jsx'
 import Features from './pages/Features.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
+import Cart from './pages/Cart.jsx'
+import OrderStatus from './pages/OrderStatus.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
@@ -44,6 +46,8 @@ export default function App() {
           <Route path="/features" element={<Features />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/order/:orderId" element={<OrderStatus />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

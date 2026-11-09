@@ -1,8 +1,20 @@
+import { useCart } from '../context/CartContext.jsx'
+
 const SIZES = ['S', 'M', 'L']
 const fmt = (n) => (n == null ? '–' : n.toFixed(2))
 
-// One menu section (e.g. "Hot"). Drinks show Small / Medium / Large prices.
+// One menu section (e.g. "Hot"). Tapping a price adds that item (and size) to the cart.
 export default function MenuSection({ section }) {
+  const { add } = useCart()
+  const price = (name, size, p) =>
+    p == null ? (
+      <span key={size} className="price none">–</span>
+    ) : (
+      <button key={size} className="price" onClick={() => add(name, size, p)} aria-label={`Add ${name} ${size || ''}`}>
+        {fmt(p)}
+      </button>
+    )
+
   return (
     <div className="menu-section">
       <h3 className="menu-title">
@@ -12,7 +24,7 @@ export default function MenuSection({ section }) {
 
       {section.sized && (
         <div className="menu-row menu-head">
-          <span />
+          <span>Tap a price to add</span>
           {SIZES.map((s) => <span key={s}>{s}</span>)}
         </div>
       )}
@@ -25,11 +37,9 @@ export default function MenuSection({ section }) {
             {item.desc && <small className="item-desc">{item.desc}</small>}
           </span>
           {section.sized ? (
-            item.prices.map((p, i) => (
-              <span key={SIZES[i]} className={p == null ? 'price none' : 'price'}>{fmt(p)}</span>
-            ))
+            item.prices.map((p, i) => price(item.name, SIZES[i], p))
           ) : (
-            <span className="price">{fmt(item.price)}</span>
+            price(item.name, null, item.price)
           )}
         </div>
       ))}

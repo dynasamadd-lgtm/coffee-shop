@@ -253,6 +253,18 @@ ul, ol { list-style: none; }
 .item-desc { display: block; font-weight: 400; font-size: 0.78rem; color: var(--muted); }
 .price { text-align: right; font-variant-numeric: tabular-nums; }
 .menu-row:not(.single) .price { text-align: center; }
+button.price {
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.25rem 0;
+  min-width: 3rem;
+  text-align: center;
+}
+button.price:hover { border-color: var(--primary); color: var(--primary); }
+button.price:active { background: var(--olive); color: var(--on-primary); }
 .price.none { color: var(--muted); text-align: center; }
 .menu-note {
   margin-top: 0.8rem;
@@ -296,6 +308,40 @@ ul, ol { list-style: none; }
 .hours table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
 .hours th, .hours td { padding: 0.8rem 0; border-bottom: 1px solid var(--border); text-align: left; font-weight: 500; }
 .hours td { text-align: right; font-variant-numeric: tabular-nums; font-weight: 400; }
+
+/* ---------- Cart & order ---------- */
+.cart-link { position: relative; font-size: 1.3rem; }
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 1px 6px;
+}
+.panel { max-width: 560px; margin: 0 auto; background: var(--surface); border-radius: var(--radius); padding: 1.6rem; box-shadow: var(--shadow); }
+.line { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border); }
+.line span:first-child { flex: 1; min-width: 0; }
+.total { font-size: 1.15rem; border-bottom: none; margin-bottom: 0.8rem; }
+.qty { display: flex; align-items: center; gap: 0.6rem; }
+.qty button { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
+.steps { display: flex; justify-content: space-between; gap: 0.5rem; margin-bottom: 1.4rem; counter-reset: s; }
+.steps li { flex: 1; text-align: center; font-size: 0.82rem; color: var(--muted); counter-increment: s; }
+.steps li::before {
+  content: counter(s);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto 0.4rem;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+}
+.steps li.on { color: var(--text); font-weight: 600; }
+.steps li.on::before { content: '✓'; background: var(--olive); border-color: var(--olive); color: var(--on-primary); }
 
 /* ---------- Forms ---------- */
 .form { display: flex; flex-direction: column; gap: 0.45rem; }

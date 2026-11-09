@@ -1,7 +1,7 @@
-# Bean & Brew — Coffee Shop Ordering Website
+# Bean & Brew — Coffee Shop Website
 
 **CSCI426 Advanced Web Programming — Project Phase 1**
-Theme: *Restaurant Ordering System* (menu display, cart and order tracking)
+Theme: Coffee shop menu website (based on Theme 4, Restaurant System: menu display)
 
 🔗 **Live demo:** `https://YOUR-LINK-HERE` *(replace after deploying)*
 🔗 **Repository:** `https://github.com/YOUR-USERNAME/bean-and-brew`
@@ -11,12 +11,12 @@ Theme: *Restaurant Ordering System* (menu display, cart and order tracking)
 ## Project description
 
 Bean & Brew is a frontend web application for a specialty coffee shop. It solves a real problem
-for busy customers: waiting in line to read the menu and order. With the website, a customer can:
+for customers: reading a long menu on a small paper board while standing in line. With the website, a customer can:
 
 - Browse the full café menu (120+ items) by category, with Small / Medium / Large prices for drinks
-- Add items to a cart, change quantities and place an order as **takeaway** or **dine-in**
-- Get an order number and **follow the order live** (Received → Preparing → Ready → Completed)
-- See the site's features and opening hours, read about the café, and send a message through a validated contact form
+- Switch between Drinks, Food, Bars & Mixes and Sweets with tabs at the top of the menu
+- See the add-ons (milk, extra ingredients, syrups) and their prices
+- Read about the café's features and opening hours, and send a message through a validated contact form
 
 The site is fully responsive (desktop, tablet and phone) and has a light and dark mode.
 
@@ -26,19 +26,16 @@ The site is fully responsive (desktop, tablet and phone) and has a light and dar
 |---|---|---|
 | `/` | Home | Static |
 | `/menu/:categoryId` | Menu with tabs for drinks, food, bars & mixes, sweets (`/menu` opens drinks) | **Dynamic** |
-| `/features` | Features (order ahead, dine-in, live status, sizes, dark mode) and opening hours | Static |
+| `/features` | Café features and opening hours | Static |
 | `/about` | About the café | Static |
 | `/contact` | Contact info and form with validation | Static |
-| `/cart` | Cart and checkout | Interactive |
-| `/order/:orderId` | Live status of one order, shown after checkout | **Dynamic** |
 | `*` | 404 page | Static |
 
 ## Technologies
 
-- **React 18** (functional components and hooks: `useState`, `useEffect`, `useContext`)
-- **React Router 6** (`HashRouter`, dynamic routes with `useParams`, `useNavigate`, `Navigate`)
-- **Context API** for the shared shopping cart
-- **localStorage** to keep the cart, orders and theme after a refresh
+- **React 18** (functional components and hooks: `useState`, `useEffect`)
+- **React Router 6** (`HashRouter`, a dynamic route with `useParams`, `NavLink`, `Navigate`)
+- **localStorage** to remember the light / dark theme
 - **Vite** for the dev server and build
 - **CSS3** (custom properties for theming, Flexbox, Grid, media queries) — no UI framework
 - **Git & GitHub** for version control, **Vercel / GitHub Pages** for hosting
@@ -74,10 +71,8 @@ bean-and-brew/
 ├── screenshots/                UI screenshots used in this README
 ├── src/
 │   ├── components/             Navbar, Footer, PageHeader, MenuSection, Extras
-│   ├── context/CartContext.jsx Shared cart state (Context API)
 │   ├── data/menu.js            All menu sections, items, prices and categories
-│   ├── pages/                  One file per page (Home, Category, Features, About, Contact, Cart, ...)
-│   ├── utils/orders.js         Save, find and track orders
+│   ├── pages/                  One file per page (Home, Category, Features, About, Contact, NotFound)
 │   ├── App.jsx                 Layout and routes
 │   ├── main.jsx                Entry point (router + cart provider)
 │   └── index.css               All styles, light and dark theme
@@ -88,27 +83,21 @@ bean-and-brew/
 
 ## Screenshots
 
-| Menu category (dynamic page) | Cart & checkout |
+| Menu (dynamic page) | Food tab |
 |---|---|
-| ![Drinks](screenshots/category-drinks.png) | ![Cart](screenshots/cart.png) |
-
-| Order status (dynamic page) | Contact |
-|---|---|
-| ![Order status](screenshots/order-tracking.png) | ![Contact](screenshots/contact.png) |
+| ![Drinks](screenshots/category-drinks.png) | ![Food](screenshots/category-food.png) |
 
 | Features | About |
 |---|---|
 | ![Features](screenshots/features.png) | ![About](screenshots/about.png) |
 
-| Dark mode | Mobile |
+| Contact | Dark mode |
 |---|---|
-| ![Dark mode](screenshots/home-dark.png) | ![Mobile menu](screenshots/mobile-menu.png) |
+| ![Contact](screenshots/contact.png) | ![Dark mode](screenshots/home-dark.png) |
 
-## Notes
-
-- This is a frontend-only project. Orders are stored in the browser's localStorage and the status
-  timeline is simulated (it moves forward every 30–90 seconds) to demonstrate order tracking.
-- Payment is not handled online; customers pay at the counter.
+| Mobile home | Mobile menu |
+|---|---|
+| ![Mobile home](screenshots/mobile-home.png) | ![Mobile menu](screenshots/mobile-menu.png) |
 
 ## Credits
 

@@ -322,6 +322,27 @@ ul, ol { list-style: none; }
 .about-story p { color: var(--muted); font-size: 1.05rem; }
 .about-story .btn { align-self: flex-start; }
 
+/* ---------- Features ---------- */
+.feature-list { max-width: 760px; margin: 0 auto; }
+.feature-list li {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.feature-list li:first-child { padding-top: 0; }
+.feature-icon { font-size: 1.8rem; line-height: 1.2; }
+.feature-list h3 { font-size: 1.15rem; margin-bottom: 0.2rem; }
+.feature-list p { color: var(--muted); }
+
+.hours { max-width: 760px; margin: 3.5rem auto 0; }
+.hours h2 { font-size: 1.6rem; }
+.hours h2::after { content: ''; display: block; width: 44px; height: 3px; background: var(--olive); margin-top: 0.35rem; }
+.hours table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+.hours th, .hours td { padding: 0.8rem 0; border-bottom: 1px solid var(--border); text-align: left; font-weight: 500; }
+.hours td { text-align: right; font-variant-numeric: tabular-nums; font-weight: 400; }
+
 /* ---------- Forms ---------- */
 .form { display: flex; flex-direction: column; gap: 0.45rem; }
 .form label, .form legend { font-weight: 500; font-size: 0.9rem; }

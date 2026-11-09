@@ -611,3 +611,9 @@ body.dark .footer-copy { border-top-color: rgba(0, 0, 0, 0.2); }
   .line-total { text-align: left; }
   .order-list a { grid-template-columns: 1fr auto; }
 }
+
+.about-story .btn { align-self: flex-start; }
+.footer-inner { align-items: baseline; }
+
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1; }

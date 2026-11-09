@@ -1,19 +1,18 @@
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useCart } from '../context/CartContext.jsx'
 
 const links = [
   { to: '/', label: 'Home' },
-  { to: '/menu', label: 'Menu' },
-  { to: '/services', label: 'Services' },
+  { to: '/menu/drinks', label: 'Menu', match: '/menu' },
   { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },
-  { to: '/track', label: 'Track Order' },
 ]
 
 export default function Navbar({ dark, toggleDark }) {
   const [open, setOpen] = useState(false)
   const { count } = useCart()
+  const { pathname } = useLocation()
 
   return (
     <header className="navbar">
@@ -23,7 +22,13 @@ export default function Navbar({ dark, toggleDark }) {
 
       <nav className={open ? 'nav-links open' : 'nav-links'}>
         {links.map((l) => (
-          <NavLink key={l.to} to={l.to} end={l.to === '/'} onClick={() => setOpen(false)}>
+          <NavLink
+            key={l.to}
+            to={l.to}
+            end={l.to === '/'}
+            className={l.match && pathname.startsWith(l.match) ? 'active' : undefined}
+            onClick={() => setOpen(false)}
+          >
             {l.label}
           </NavLink>
         ))}

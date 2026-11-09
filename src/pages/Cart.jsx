@@ -32,7 +32,7 @@ export default function Cart() {
   if (items.length === 0) {
     return (
       <PageHeader eyebrow="Cart" title="Your cart is empty" text="Tap any price on the menu to add it here.">
-        <Link to="/menu" className="btn">Browse the menu</Link>
+        <Link to="/menu/drinks" className="btn">Browse the menu</Link>
       </PageHeader>
     )
   }
@@ -68,7 +68,7 @@ export default function Cart() {
               <span>Total</span>
               <strong>{money(total)}</strong>
             </div>
-            <Link to="/menu" className="text-link">← Add more items</Link>
+            <Link to="/menu/drinks" className="text-link">← Add more items</Link>
           </div>
 
           <form className="form checkout-form" onSubmit={placeOrder} noValidate>

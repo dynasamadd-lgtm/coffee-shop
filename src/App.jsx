@@ -1,15 +1,12 @@
 import { useEffect, useState } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
-import Menu from './pages/Menu.jsx'
 import Category from './pages/Category.jsx'
-import Services from './pages/Services.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import Cart from './pages/Cart.jsx'
-import Track from './pages/Track.jsx'
 import OrderStatus from './pages/OrderStatus.jsx'
 import NotFound from './pages/NotFound.jsx'
 
@@ -43,13 +40,11 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/menu" element={<Menu />} />
+          <Route path="/menu" element={<Navigate to="/menu/drinks" replace />} />
           <Route path="/menu/:categoryId" element={<Category />} />
-          <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/track" element={<Track />} />
           <Route path="/order/:orderId" element={<OrderStatus />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -18,7 +18,7 @@ export default function OrderStatus() {
   if (!order) {
     return (
       <PageHeader title="Order not found" text={`We could not find order #${orderId} on this device.`}>
-        <Link to="/track" className="btn">Try another number</Link>
+        <Link to="/menu/drinks" className="btn">Back to menu</Link>
       </PageHeader>
     )
   }
@@ -69,7 +69,7 @@ export default function OrderStatus() {
           </div>
         </div>
         <div className="center">
-          <Link to="/menu" className="btn btn-outline">Order something else</Link>
+          <Link to="/menu/drinks" className="btn btn-outline">Order something else</Link>
         </div>
       </section>
     </>

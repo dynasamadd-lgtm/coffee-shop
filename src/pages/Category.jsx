@@ -15,18 +15,18 @@ export default function Category() {
   if (!category) {
     return (
       <PageHeader title="Category not found" text={`There is no menu category called “${categoryId}”.`}>
-        <Link to="/menu" className="btn">Back to menu</Link>
+        <Link to="/menu/drinks" className="btn">Back to menu</Link>
       </PageHeader>
     )
   }
 
   return (
     <>
-      <PageHeader eyebrow="Menu" title={`${category.icon} ${category.label}`} text={category.blurb}>
+      <PageHeader eyebrow="Our Menu" title={category.label} text={category.blurb}>
         <nav className="category-tabs" aria-label="Menu categories">
           {categories.map((c) => (
             <NavLink key={c.id} to={`/menu/${c.id}`} className="chip">
-              {c.label}
+              {c.icon} {c.label}
             </NavLink>
           ))}
         </nav>

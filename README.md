@@ -1,7 +1,7 @@
-# Bean & Brew — Coffee Shop Website
+# Bean & Brew — Coffee Shop Ordering Website
 
 **CSCI426 Advanced Web Programming — Project Phase 1**
-Theme: Coffee shop menu website (based on Theme 4, Restaurant System: menu display)
+Theme 4: *Restaurant Ordering System* (menu display, cart and order tracking)
 
 🔗 **Live demo:** `https://YOUR-LINK-HERE` *(replace after deploying)*
 🔗 **Repository:** `https://github.com/YOUR-USERNAME/bean-and-brew`
@@ -16,6 +16,8 @@ for customers: reading a long menu on a small paper board while standing in line
 - Browse the full café menu (120+ items) by category, with Small / Medium / Large prices for drinks
 - Switch between Drinks, Food, Bars & Mixes and Sweets with tabs at the top of the menu
 - See the add-ons (milk, extra ingredients, syrups) and their prices
+- Tap a price to add the item to the cart, change quantities and place an order
+- Follow the order status (Received → Preparing → Ready → Completed) on its own page
 - Read about the café's features and opening hours, and send a message through a validated contact form
 
 The site is fully responsive (desktop, tablet and phone) and has a light and dark mode.
@@ -29,13 +31,16 @@ The site is fully responsive (desktop, tablet and phone) and has a light and dar
 | `/features` | Café features and opening hours | Static |
 | `/about` | About the café | Static |
 | `/contact` | Contact info and form with validation | Static |
+| `/cart` | Cart and order form | Interactive |
+| `/order/:orderId` | Status of one order | **Dynamic** |
 | `*` | 404 page | Static |
 
 ## Technologies
 
-- **React 18** (functional components and hooks: `useState`, `useEffect`)
-- **React Router 6** (`HashRouter`, a dynamic route with `useParams`, `NavLink`, `Navigate`)
-- **localStorage** to remember the light / dark theme
+- **React 18** (functional components and hooks: `useState`, `useEffect`, `useContext`)
+- **React Router 6** (`HashRouter`, a dynamic route with `useParams`, `NavLink`, `Navigate`, `useNavigate`)
+- **Context API** for the shared cart
+- **localStorage** to keep the cart, orders and theme after a refresh
 - **Vite** for the dev server and build
 - **CSS3** (custom properties for theming, Flexbox, Grid, media queries) — no UI framework
 - **Git & GitHub** for version control, **Vercel / GitHub Pages** for hosting
@@ -70,9 +75,10 @@ bean-and-brew/
 ├── public/images/cafe.jpg      Home page photo
 ├── screenshots/                UI screenshots used in this README
 ├── src/
+│   ├── context/CartContext.jsx Cart state and order helpers
 │   ├── components/             Navbar, Footer, PageHeader, MenuSection, Extras
 │   ├── data/menu.js            All menu sections, items, prices and categories
-│   ├── pages/                  One file per page (Home, Category, Features, About, Contact, NotFound)
+│   ├── pages/                  One file per page (Home, Category, Features, About, Contact, Cart, OrderStatus, NotFound)
 │   ├── App.jsx                 Layout and routes
 │   ├── main.jsx                Entry point (router + cart provider)
 │   └── index.css               All styles, light and dark theme
@@ -91,6 +97,10 @@ bean-and-brew/
 |---|---|
 | ![Features](screenshots/features.png) | ![About](screenshots/about.png) |
 
+| Cart | Order status (dynamic page) |
+|---|---|
+| ![Cart](screenshots/cart.png) | ![Order status](screenshots/order-status.png) |
+
 | Contact | Dark mode |
 |---|---|
 | ![Contact](screenshots/contact.png) | ![Dark mode](screenshots/home-dark.png) |
@@ -98,6 +108,11 @@ bean-and-brew/
 | Mobile home | Mobile menu |
 |---|---|
 | ![Mobile home](screenshots/mobile-home.png) | ![Mobile menu](screenshots/mobile-menu.png) |
+
+## Notes
+
+This is a frontend-only project: orders are saved in the browser (localStorage) and the status
+moves forward every 30 seconds to simulate the kitchen. Payment happens at the counter.
 
 ## Credits
 

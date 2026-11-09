@@ -16,7 +16,7 @@ for busy customers: waiting in line to read the menu and order. With the website
 - Browse the full café menu (120+ items) by category, with Small / Medium / Large prices for drinks
 - Add items to a cart, change quantities and place an order as **takeaway** or **dine-in**
 - Get an order number and **follow the order live** (Received → Preparing → Ready → Completed)
-- Read about the café and send a message through a validated contact form
+- See the site's features and opening hours, read about the café, and send a message through a validated contact form
 
 The site is fully responsive (desktop, tablet and phone) and has a light and dark mode.
 
@@ -26,6 +26,7 @@ The site is fully responsive (desktop, tablet and phone) and has a light and dar
 |---|---|---|
 | `/` | Home | Static |
 | `/menu/:categoryId` | Menu with tabs for drinks, food, bars & mixes, sweets (`/menu` opens drinks) | **Dynamic** |
+| `/features` | Features (order ahead, dine-in, live status, sizes, dark mode) and opening hours | Static |
 | `/about` | About the café | Static |
 | `/contact` | Contact info and form with validation | Static |
 | `/cart` | Cart and checkout | Interactive |
@@ -75,7 +76,7 @@ bean-and-brew/
 │   ├── components/             Navbar, Footer, PageHeader, MenuSection, Extras
 │   ├── context/CartContext.jsx Shared cart state (Context API)
 │   ├── data/menu.js            All menu sections, items, prices and categories
-│   ├── pages/                  One file per page (Home, Category, About, Contact, Cart, ...)
+│   ├── pages/                  One file per page (Home, Category, Features, About, Contact, Cart, ...)
 │   ├── utils/orders.js         Save, find and track orders
 │   ├── App.jsx                 Layout and routes
 │   ├── main.jsx                Entry point (router + cart provider)
@@ -95,9 +96,9 @@ bean-and-brew/
 |---|---|
 | ![Order status](screenshots/order-tracking.png) | ![Contact](screenshots/contact.png) |
 
-| About | Sweets tab |
+| Features | About |
 |---|---|
-| ![About](screenshots/about.png) | ![Sweets](screenshots/category-sweets.png) |
+| ![Features](screenshots/features.png) | ![About](screenshots/about.png) |
 
 | Dark mode | Mobile |
 |---|---|

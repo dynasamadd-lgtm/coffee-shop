@@ -14,10 +14,9 @@ Bean & Brew is a frontend web application for a specialty coffee shop. It solves
 for busy customers: waiting in line to read the menu and order. With the website, a customer can:
 
 - Browse the full café menu (120+ items) by category, with Small / Medium / Large prices for drinks
-- Search the whole menu for an item
 - Add items to a cart, change quantities and place an order as **takeaway** or **dine-in**
-- Get an order number and **track the order live** (Received → Preparing → Ready → Completed)
-- Read about the café's services, story and opening hours, and send a message through a validated contact form
+- Get an order number and **follow the order live** (Received → Preparing → Ready → Completed)
+- Read about the café and send a message through a validated contact form
 
 The site is fully responsive (desktop, tablet and phone) and has a light and dark mode.
 
@@ -26,20 +25,17 @@ The site is fully responsive (desktop, tablet and phone) and has a light and dar
 | Route | Page | Type |
 |---|---|---|
 | `/` | Home | Static |
-| `/menu` | Menu overview and search | Static |
-| `/menu/:categoryId` | Menu category (drinks, food, healthy, sweets) | **Dynamic** |
-| `/services` | Services / features and opening hours | Static |
+| `/menu/:categoryId` | Menu with tabs for drinks, food, bars & mixes, sweets (`/menu` opens drinks) | **Dynamic** |
 | `/about` | About the café | Static |
 | `/contact` | Contact info and form with validation | Static |
 | `/cart` | Cart and checkout | Interactive |
-| `/track` | Find an order by number | Interactive |
-| `/order/:orderId` | Live status of one order | **Dynamic** |
+| `/order/:orderId` | Live status of one order, shown after checkout | **Dynamic** |
 | `*` | 404 page | Static |
 
 ## Technologies
 
 - **React 18** (functional components and hooks: `useState`, `useEffect`, `useContext`)
-- **React Router 6** (`HashRouter`, dynamic routes with `useParams`, `useNavigate`)
+- **React Router 6** (`HashRouter`, dynamic routes with `useParams`, `useNavigate`, `Navigate`)
 - **Context API** for the shared shopping cart
 - **localStorage** to keep the cart, orders and theme after a refresh
 - **Vite** for the dev server and build
@@ -79,7 +75,7 @@ bean-and-brew/
 │   ├── components/             Navbar, Footer, PageHeader, MenuSection, Extras
 │   ├── context/CartContext.jsx Shared cart state (Context API)
 │   ├── data/menu.js            All menu sections, items, prices and categories
-│   ├── pages/                  One file per page (Home, Menu, Category, Services, ...)
+│   ├── pages/                  One file per page (Home, Category, About, Contact, Cart, ...)
 │   ├── utils/orders.js         Save, find and track orders
 │   ├── App.jsx                 Layout and routes
 │   ├── main.jsx                Entry point (router + cart provider)
@@ -95,13 +91,13 @@ bean-and-brew/
 |---|---|
 | ![Drinks](screenshots/category-drinks.png) | ![Cart](screenshots/cart.png) |
 
-| Order tracking (dynamic page) | Services |
+| Order status (dynamic page) | Contact |
 |---|---|
-| ![Tracking](screenshots/order-tracking.png) | ![Services](screenshots/services.png) |
+| ![Order status](screenshots/order-tracking.png) | ![Contact](screenshots/contact.png) |
 
-| About | Contact |
+| About | Sweets tab |
 |---|---|
-| ![About](screenshots/about.png) | ![Contact](screenshots/contact.png) |
+| ![About](screenshots/about.png) | ![Sweets](screenshots/category-sweets.png) |
 
 | Dark mode | Mobile |
 |---|---|
